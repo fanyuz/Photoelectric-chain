@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title></title>
+	<!--Public style sheet-->
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="css/swiper-4.1.0.min.css"/>
+	<!--style file-->
+	<link rel="stylesheet" type="text/css" href="css/public.css"/>
+	<!--Plug-in library-->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/swiper-4.1.0.min.js"></script>
+	<!-- 引入 ECharts 文件 -->
+    <script src="js/echarts.common.min.js"></script>
+	<!--Rem Unit processing-->
+	<script src="js/Rem.js"></script>
+	<!--script file-->
+	<script src="js/public.js"></script>
+    <script type="text/javascript">
+    	
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"
+   			
+   		});
+   		
+    </script>
+</head>
+<body>
+	<div class="index_banner">
+		<div class="swiper-container">
+		    <div class="swiper-wrapper">
+		        <div class="swiper-slide"><img src="img/index_banner.png"/></div>
+		        <div class="swiper-slide"><img src="img/index_banner.png"/></div>
+		        <div class="swiper-slide"><img src="img/index_banner.png"/></div>
+		    </div>
+		    <!-- 如果需要分页器 -->
+		    <div class="swiper-pagination"></div>
+		</div>
+	</div>
+	<div class="proclamation">
+        <div>
+        	<img src="img/icon/ba.png" alt="" />
+        	<p>公告：2018年4月18日PEC光电链全新上线</p>
+        	<span>所在区域：北京市丰台区</span>
+        </div>
+	</div>
+	<div class="index_main">
+		<div class="main_top">
+			<p>当前价：</p>
+			<p><span>0.07</span></p>
+			<p>USD=<span>0.455</span> RMB</p>
+		</div>
+		<div class="charts_title">
+			<i></i>
+			<p>行情趋势</p>
+		</div>
+		<div class="charts_box" id="charts_box">
+			<img src="img/charts.png"/>
+		</div>
+		<div class="charts_title">
+			<i></i>
+			<p>最新资讯</p>
+		</div>
+		<div class="main_more">更多</div>
+		<div class="information">
+			<a href="">
+				
+			</a>
+			<a href="">
+				
+			</a>
+			<a href="">
+				
+			</a>
+		</div>
+		
+	</div>
+	<footer>
+		<i><img src="img/banyuan.png"/></i>
+		<a href="">
+			<img src="img/icon/home.png" alt="" />
+			<p>首页</p>
+		</a>
+		<a href="">
+			<img src="img/icon/active.png" alt="" />
+			<p>商城</p>
+		</a>	
+		<a href="">
+			<img src="img/icon/wallet.png" alt="" class="wallet_img"/>
+			<p>钱包</p>
+		</a>	
+		<a href="">
+			<img src="img/icon/charts.png" alt="" />
+			<p>交易</p>
+		</a>	
+		<a href="">
+			<img src="img/icon/my.png" alt="" />
+			<p>我的</p>
+		</a>	
+	</footer>
+	<script>        
+	  var mySwiper = new Swiper ('.swiper-container', {
+	    direction: 'horizontal',
+	    loop: true,
+	    
+	    // 如果需要分页器
+	    pagination: {
+	      el: '.swiper-pagination',
+	    },
+	  }) 
+	  var myChart = echarts.init(document.getElementById('charts_box'));
+	  var option = {
+		    backgroundColor: "#fff",
+		    color: ["#37A2DA"],
+		
+		    tooltip: {
+		        trigger: 'axis'
+		    },
+		    xAxis: {
+		        type: 'category',
+		        boundaryGap: false,
+		        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+		    },
+		    yAxis: {
+		        x: 'center',
+		        type: 'value',
+		    },
+		    series: [{
+		        name: '销量',
+		        type: 'line',
+		        data: [20, 80, 51, 90, 80, 30, 20]
+		    }]
+		};
+		 myChart.setOption(option);
+	 
+  </script>
+</body>
+</html>

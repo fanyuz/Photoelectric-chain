@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    <title></title>
+		<!--Public style sheet-->
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper-4.1.0.min.css"/>
+		<!--style file-->
+		<link rel="stylesheet" type="text/css" href="css/public.css"/>
+		<link rel="stylesheet" type="text/css" href="css/guangdian.css"/>
+		<!--Plug-in library-->
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script src="js/swiper-4.1.0.min.js"></script>
+		<!-- 引入 ECharts 文件 -->
+	    <script src="js/echarts.common.min.js"></script>
+		<!--Rem Unit processing-->
+		<script src="js/Rem.js"></script>
+		<!--script file-->
+		<script src="js/public.js"></script>
+	</head>
+	<body>
+		
+		<div class="accounts">
+			<div class="main_canvas">
+				<canvas id="canvas" style="background:#111"></canvas>
+			</div>
+			<div class="accounts_top">
+				<p>微型云矿机</p>
+				<a href="">结算</a>
+			</div>
+			<div class="rotate_box">
+				<div class="rotate_img">
+					
+				</div>
+				<p>运行中</p>
+			</div>
+			<div class="bottom_text">
+				<h1>1.0233263268 <span>GEC</span></h1>
+				<p class="sunal">矿机算力：<span>0.002</span>GH/s</p>
+				<p class="sunal">矿机算力：<span>0.002</span>GH/s</p>
+				<p>累计获得：<span>1.0233263268</span>GH/s</p>
+				<p>上次结算时间：<span>2018-3-23 12:34:56</span></p>
+				<p>到期时间：<span>2018-3-23 12:34:56</span></p>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			
+			window.onload = function(){
+				var canvas = document.getElementById("canvas");
+				var context =canvas.getContext("2d");
+				var W = window.innerWidth;
+				var H = window.innerHeight;
+				canvas.width = W;
+				canvas.height = H;
+				var fontSize = 12;
+				var colunms = Math.floor(W /fontSize);	
+				var drops = [];
+				for(var i=0;i<colunms;i++){
+					drops.push(0);
+				}
+				var str ="javascript html5 canvas";
+				//绘画的函数
+				function draw(){
+					context.fillStyle = "rgba(0,0,0,0.05)";
+					context.fillRect(0,0,W,H);
+					context.font = "700 "+fontSize+"px  微软雅黑";
+					context.fillStyle ="#00cc33";
+					for(var i=0;i<colunms;i++){
+						var index = Math.floor(Math.random() * str.length);
+						var x = i*fontSize;
+						var y = drops[i] *fontSize;
+						context.fillText(str[index],x,y);
+						if(y >= canvas.height && Math.random() > 0.99){
+							drops[i] = 0;
+						}
+						drops[i]++;
+					}
+				};
+	
+				function randColor(){
+					var r = Math.floor(Math.random() * 256);
+					var g = Math.floor(Math.random() * 256);
+					var b = Math.floor(Math.random() * 256);
+					return "rgb("+r+","+g+","+b+")";
+				}
+	
+				draw();
+				setInterval(draw,30);
+			};
+	
+		</script>
+	</body>
+</html>

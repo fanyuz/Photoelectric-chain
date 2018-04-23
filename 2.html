@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+</head>
+<style>
+.pswp__preloader__icn {
+  opacity:0.75;
+  width: 500px;
+  height: 500px;
+  -webkit-animation: clockwise 500ms linear infinite;
+  animation: clockwise 500ms linear infinite;
+}
+ 
+
+.pswp__preloader__cut {
+  position: relative;
+  width: 500px;
+  height: 500px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+ 
+.pswp__preloader__donut {
+  box-sizing: border-box;
+  width: 500px;
+  height: 500px;
+  border: 6px solid #000;
+  border-radius: 50%;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: none;
+  margin:0;
+   -webkit-animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
+  animation: donut-rotate 1000ms cubic-bezier(.4,0,.22,1) infinite;
+}
+ 
+@-webkit-keyframes clockwise {
+  0% { -webkit-transform: rotate(0deg) }
+  100% { -webkit-transform: rotate(360deg) }
+}
+@keyframes clockwise {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+@-webkit-keyframes donut-rotate {
+  0% { -webkit-transform: rotate(0) }
+  50% { -webkit-transform: rotate(-90deg) }
+  100% { -webkit-transform: rotate(0) }
+}
+@keyframes donut-rotate {
+  0% { transform: rotate(0) }
+  50% { transform: rotate(-90deg) }
+  100% { transform: rotate(0) }
+}
+</style>
+<body>
+<div class="pswp__preloader__icn">
+  <div class="pswp__preloader__cut">
+    <div class="pswp__preloader__donut"></div>
+  </div>
+</div>
+</body>
+</html>
